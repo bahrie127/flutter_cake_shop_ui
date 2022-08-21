@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cakery_shop_ui/screen/cakery_detail.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../data/cake.dart';
 
@@ -10,28 +11,22 @@ class CakeryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFCFAF8),
-      body: ListView(
-        children: [
-          const SizedBox(height: 15.0),
-          Container(
-            padding: const EdgeInsets.only(right: 15.0),
-            width: MediaQuery.of(context).size.width - 30.0,
-            height: MediaQuery.of(context).size.height - 50.0,
-            child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10.0,
-                mainAxisSpacing: 15.0,
-                childAspectRatio: 0.8,
-              ),
-              itemBuilder: (context, index) {
-                return _buildCard(listCakes[index], context);
-              },
-              itemCount: listCakes.length,
-            ),
+      body: Padding(
+        padding: EdgeInsets.only(
+          bottom: 80.sp,
+        ),
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 8.sp,
+            mainAxisSpacing: 8.sp,
+            childAspectRatio: 0.7.sp,
           ),
-          const SizedBox(height: 15.0)
-        ],
+          itemBuilder: (context, index) {
+            return _buildCard(listCakes[index], context);
+          },
+          itemCount: listCakes.length,
+        ),
       ),
     );
   }
@@ -41,7 +36,7 @@ class CakeryPage extends StatelessWidget {
     context,
   ) {
     return Padding(
-      padding: const EdgeInsets.all(5),
+      padding: EdgeInsets.all(4.sp),
       child: InkWell(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) {
@@ -54,7 +49,7 @@ class CakeryPage extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15.0),
+            borderRadius: BorderRadius.circular(16.0.sp),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.2),
@@ -64,10 +59,14 @@ class CakeryPage extends StatelessWidget {
             ],
             color: Colors.white,
           ),
-          child: Column(
+          child: ListView(
+            physics: const NeverScrollableScrollPhysics(),
             children: [
               Padding(
-                padding: const EdgeInsets.all(5.0),
+                padding: EdgeInsets.only(
+                  right: 8.sp,
+                  top: 8.sp,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -83,94 +82,96 @@ class CakeryPage extends StatelessWidget {
                   ],
                 ),
               ),
-              Hero(
-                tag: cake.imageUrl,
-                child: Container(
-                  height: 90,
-                  width: 90,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    image: DecorationImage(
-                      image: AssetImage(cake.imageUrl),
-                      fit: BoxFit.contain,
-                    ),
+              Container(
+                height: 92.h,
+                width: 92.w,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16.sp),
+                  image: DecorationImage(
+                    image: AssetImage(cake.imageUrl),
+                    fit: BoxFit.contain,
                   ),
                 ),
               ),
-              const SizedBox(height: 7.0),
-              Text(
-                'Rp ${cake.price}',
-                style: const TextStyle(
-                    color: Color(0xFFCC8053),
-                    fontFamily: 'Varela',
-                    fontSize: 14.0),
+              SizedBox(height: 8.sp),
+              Center(
+                child: Text(
+                  'Rp ${cake.price}',
+                  style: TextStyle(
+                      color: const Color(0xFFCC8053),
+                      fontFamily: 'Varela',
+                      fontSize: 16.sp),
+                ),
               ),
-              Text(
-                cake.name,
-                style: const TextStyle(
-                    color: Color(0xFF575E67),
-                    fontFamily: 'Varela',
-                    fontSize: 14.0),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  color: const Color(0xFFEBEBEB),
-                  height: 1.0,
+              Center(
+                child: Text(
+                  cake.name,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      color: const Color(0xFF575E67),
+                      fontFamily: 'Varela',
+                      fontSize: 14.sp),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
+                padding: EdgeInsets.all(8.0.sp),
+                child: Container(
+                  color: const Color(0xFFEBEBEB),
+                  height: 1.0.sp,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 4.sp),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Row(
-                      children: const [
+                      children: [
                         Icon(
-                          Icons.shopping_basket,
-                          color: Color(0xFFD17E50),
-                          size: 16,
+                          Icons.chat,
+                          color: const Color(0xFFD17E50),
+                          size: 16.sp,
                         ),
                         SizedBox(
-                          width: 6,
+                          width: 8.sp,
                         ),
                         Text(
-                          'Beli',
+                          'Chat',
                           style: TextStyle(
                               fontFamily: 'Varela',
-                              color: Color(0xFFD17E50),
-                              fontSize: 12),
+                              color: const Color(0xFFD17E50),
+                              fontSize: 12.sp),
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      width: 15,
+                    SizedBox(
+                      width: 16.sp,
                     ),
                     Row(
-                      children: const [
+                      children: [
                         Icon(
                           Icons.remove_circle_outline,
-                          color: Color(0xFFD17E50),
-                          size: 16,
+                          color: const Color(0xFFD17E50),
+                          size: 16.sp,
                         ),
                         SizedBox(
-                          width: 6,
+                          width: 8.sp,
                         ),
                         Text(
                           '3',
                           style: TextStyle(
                               fontFamily: 'Varela',
-                              color: Color(0xFFD17E50),
+                              color: const Color(0xFFD17E50),
                               fontWeight: FontWeight.bold,
-                              fontSize: 12),
+                              fontSize: 12.sp),
                         ),
                         SizedBox(
-                          width: 6,
+                          width: 8.sp,
                         ),
                         Icon(
                           Icons.add_circle_outline,
-                          color: Color(0xFFD17E50),
-                          size: 16,
+                          color: const Color(0xFFD17E50),
+                          size: 16.sp,
                         ),
                       ],
                     ),

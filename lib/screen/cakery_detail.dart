@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cakery_shop_ui/widget/navbar_widget.dart';
+import 'package:flutter_launch/flutter_launch.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CakeryDetail extends StatelessWidget {
@@ -30,12 +32,12 @@ class CakeryDetail extends StatelessWidget {
             Navigator.of(context).pop();
           },
         ),
-        title: const Text(
-          'Pilihan',
+        title: Text(
+          'Pesan',
           style: TextStyle(
             fontFamily: 'Varela',
-            fontSize: 20.0,
-            color: Color(0xFF545D68),
+            fontSize: 24.0.sp,
+            color: const Color(0xFF545D68),
           ),
         ),
         actions: [
@@ -50,32 +52,31 @@ class CakeryDetail extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          const SizedBox(height: 15.0),
-          const Padding(
-            padding: EdgeInsets.only(left: 20.0),
+          SizedBox(height: 16.0.sp),
+          Padding(
+            padding: EdgeInsets.only(left: 16.0.sp),
             child: Text(
               'Kue',
               style: TextStyle(
                 fontFamily: 'Varela',
-                fontSize: 42.0,
+                fontSize: 40.0.sp,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFFF17532),
+                color: const Color(0xFFF17532),
               ),
             ),
           ),
-          const SizedBox(height: 15.0),
+          SizedBox(height: 16.0.sp),
           Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 20,
+            padding: EdgeInsets.symmetric(
+              horizontal: 16.sp,
             ),
             child: Hero(
               tag: assetPath,
               child: Container(
-                height: 250,
-                width: 200,
+                height: 200.h,
+                width: 200.w,
                 decoration: BoxDecoration(
-                  // border: Border.all(),
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(32.sp),
                   image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage(assetPath),
@@ -84,78 +85,89 @@ class CakeryDetail extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 20.0),
+          SizedBox(height: 16.0.sp),
           Center(
             child: Text(
               'Rp $cookieprice',
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: 'Varela',
-                fontSize: 22.0,
+                fontSize: 20.0.sp,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFFF17532),
+                color: const Color(0xFFF17532),
               ),
             ),
           ),
-          const SizedBox(height: 10.0),
+          SizedBox(height: 16.0.sp),
           Center(
             child: Text(
               cookiename,
-              style: const TextStyle(
-                  color: Color(0xFF575E67),
+              style: TextStyle(
+                  color: const Color(0xFF575E67),
                   fontFamily: 'Varela',
-                  fontSize: 24.0),
+                  fontSize: 24.0.sp),
             ),
           ),
-          const SizedBox(height: 20.0),
+          SizedBox(height: 16.0.sp),
           Center(
             child: SizedBox(
-              width: MediaQuery.of(context).size.width - 50.0,
-              child: const Text(
+              width: MediaQuery.of(context).size.width - 52.0,
+              child: Text(
                 'Bolu atau kue bolu adalah kue berbahan dasar tepung, gula, dan telur. Kue bolu dan cake umumnya dimatangkan dengan cara dipanggang di dalam oven, walaupun ada juga bolu yang dikukus',
                 maxLines: 4,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: 'Varela',
-                  fontSize: 16.0,
-                  color: Color(0xFFB4B8B9),
+                  fontSize: 16.0.sp,
+                  color: const Color(0xFFB4B8B9),
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 20.0),
+          SizedBox(height: 16.0.sp),
           Center(
             child: Container(
-              width: MediaQuery.of(context).size.width - 100.0,
-              height: 50.0,
+              width: MediaQuery.of(context).size.width - 100.0.w,
+              height: 52.0.h,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25.0),
+                borderRadius: BorderRadius.circular(24.0.sp),
                 color: const Color(0xFFF17532),
               ),
               child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Icon(
-                      FontAwesomeIcons.whatsapp,
-                      size: 30,
-                      color: Colors.white70,
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'Pesan Via Whatsapp',
-                      style: TextStyle(
+                child: InkWell(
+                  onTap: () async {
+                    await FlutterLaunch.launchWhatsapp(
+                      phone: '6285640899224',
+                      message:
+                          'Hi Bahri Cakery, Order $cookiename untuk hari ini, apa bisa diantar?',
+                    );
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        FontAwesomeIcons.whatsapp,
+                        size: 32.sp,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 8.sp,
+                      ),
+                      Text(
+                        'Pesan via Whatsapp',
+                        style: TextStyle(
                           fontFamily: 'Varela',
-                          fontSize: 16.0,
+                          fontSize: 16.0.sp,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                  ],
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
+          SizedBox(height: 28.0.sp),
         ],
       ),
       floatingActionButton: FloatingActionButton(
