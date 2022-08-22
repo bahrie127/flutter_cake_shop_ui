@@ -52,7 +52,7 @@ class CakeryDetail extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          SizedBox(height: 16.0.sp),
+          SizedBox(height: 16.0.h),
           Padding(
             padding: EdgeInsets.only(left: 16.0.sp),
             child: Text(
@@ -65,7 +65,7 @@ class CakeryDetail extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16.0.sp),
+          SizedBox(height: 16.0.h),
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 16.sp,
@@ -85,7 +85,7 @@ class CakeryDetail extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16.0.sp),
+          SizedBox(height: 16.0.h),
           Center(
             child: Text(
               'Rp $cookieprice',
@@ -123,7 +123,7 @@ class CakeryDetail extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16.0.sp),
+          SizedBox(height: 16.0.h),
           Center(
             child: Container(
               width: MediaQuery.of(context).size.width - 100.0.w,
@@ -138,7 +138,7 @@ class CakeryDetail extends StatelessWidget {
                     await FlutterLaunch.launchWhatsapp(
                       phone: '6285640899224',
                       message:
-                          'Hi Bahri Cakery, Order $cookiename untuk hari ini, apa bisa diantar?',
+                          'Hi Bahri Cakery,Saya mau order $cookiename untuk hari ini, apa bisa diantar kerumah?',
                     );
                   },
                   child: Row(
@@ -150,7 +150,7 @@ class CakeryDetail extends StatelessWidget {
                         color: Colors.white,
                       ),
                       SizedBox(
-                        width: 8.sp,
+                        width: 8.w,
                       ),
                       Text(
                         'Pesan via Whatsapp',
@@ -167,7 +167,7 @@ class CakeryDetail extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 28.0.sp),
+          SizedBox(height: 28.0.h),
         ],
       ),
       floatingActionButton: FloatingActionButton(

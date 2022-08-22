@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NavbarWidget extends StatelessWidget {
   const NavbarWidget({Key? key}) : super(key: key);
@@ -12,20 +13,20 @@ class NavbarWidget extends StatelessWidget {
       color: Colors.transparent,
       elevation: 10,
       child: Container(
-        height: 50.0,
-        decoration: const BoxDecoration(
+        height: 50.0.h,
+        decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(25.0),
-            topRight: Radius.circular(25.0),
+            topLeft: Radius.circular(25.0.r),
+            topRight: Radius.circular(25.0.r),
           ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(
-              height: 50.0,
-              width: MediaQuery.of(context).size.width / 2 - 40.0,
+              height: 50.0.h,
+              width: MediaQuery.of(context).size.width / 2 - 40.0.w,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: const [
@@ -41,8 +42,8 @@ class NavbarWidget extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 50.0,
-              width: MediaQuery.of(context).size.width / 2 - 40.0,
+              height: 50.0.h,
+              width: MediaQuery.of(context).size.width / 2 - 40.0.w,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: const [

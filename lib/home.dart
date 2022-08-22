@@ -54,13 +54,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 16.sp),
         children: [
-          SizedBox(height: 8.0.sp),
+          SizedBox(height: 8.0.h),
           Text('Menu',
               style: TextStyle(
                   fontFamily: 'Varela',
                   fontSize: 40.0.sp,
                   fontWeight: FontWeight.bold)),
-          SizedBox(height: 8.0.sp),
+          SizedBox(height: 8.0.h),
           TabBar(
               controller: _tabController,
               indicatorColor: Colors.transparent,
@@ -92,7 +92,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 )
               ]),
           SizedBox(
-            height: MediaQuery.of(context).size.height - 160.0.sp,
+            height: MediaQuery.of(context).size.height - 160.0.h,
             width: double.infinity,
             child: TabBarView(
               controller: _tabController,

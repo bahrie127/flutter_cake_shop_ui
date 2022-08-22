@@ -49,7 +49,7 @@ class CakeryPage extends StatelessWidget {
         },
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16.0.sp),
+            borderRadius: BorderRadius.circular(16.0.r),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.2),
@@ -86,14 +86,14 @@ class CakeryPage extends StatelessWidget {
                 height: 92.h,
                 width: 92.w,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16.sp),
+                  borderRadius: BorderRadius.circular(16.r),
                   image: DecorationImage(
                     image: AssetImage(cake.imageUrl),
                     fit: BoxFit.contain,
                   ),
                 ),
               ),
-              SizedBox(height: 8.sp),
+              SizedBox(height: 8.h),
               Center(
                 child: Text(
                   'Rp ${cake.price}',
@@ -145,7 +145,7 @@ class CakeryPage extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      width: 16.sp,
+                      width: 16.h,
                     ),
                     Row(
                       children: [
@@ -155,7 +155,7 @@ class CakeryPage extends StatelessWidget {
                           size: 16.sp,
                         ),
                         SizedBox(
-                          width: 8.sp,
+                          width: 8.w,
                         ),
                         Text(
                           '3',
@@ -166,7 +166,7 @@ class CakeryPage extends StatelessWidget {
                               fontSize: 12.sp),
                         ),
                         SizedBox(
-                          width: 8.sp,
+                          width: 8.w,
                         ),
                         Icon(
                           Icons.add_circle_outline,
